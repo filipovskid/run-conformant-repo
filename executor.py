@@ -15,14 +15,14 @@ def main():
     project_id = os.environ.get("PROJECT_ID")
 
     conf = {
-        'bootstrap.servers': '192.168.1.4',
+        'bootstrap.servers': bootstrap_servers,
         'client.id': socket.gethostname(),
         'retries': 10,
         'retry.backoff.ms': 1000,
         'queue.buffering.max.ms': 100
     }
 
-    producer = RemoteProducer(conf, topic='run_messages')
+    producer = RemoteProducer(conf, topic=producer_topic)
     drboson = DRBoson(producer)
     drboson.started()
 
