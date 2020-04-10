@@ -24,13 +24,17 @@ def main():
 
     producer = RemoteProducer(conf, topic=producer_topic)
     drboson = DRBoson(producer)
+    print('Before started)
     drboson.started()
+    print('Started')
 
     try:
         run.run(drboson)
     finally:
+        print('Before completed)
         drboson.completed()
-
+        print('Completed')
+        
     # run.run()
 
 
