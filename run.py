@@ -1,5 +1,4 @@
 from drboson.drboson import DRBoson
-from confluent_python import Producer
 import flask
 import random
 import time
