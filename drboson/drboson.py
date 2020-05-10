@@ -56,16 +56,16 @@ class DRBoson:
 
 
 class Run(object):
-    def __init__(self, run_id=None, project_id=None, work_dir=None, data_dir=None):
+    def __init__(self, run_id=None, project_id=None, work_dir=None, dataset_dir=None):
         self.id = run_id
         self.project_id = project_id
         self.work_dir = pathlib.Path(work_dir)
-        self.data_dir = data_dir
+        self.dataset_dir = dataset_dir
 
         if self.work_dir.is_dir() is False:
             raise NotADirectoryError('drboson: Work directory is supposed to be a directory')
 
-        if self.data_dir.is_dir() is False:
+        if self.dataset_dir.is_dir() is False:
             raise NotADirectoryError('drboson: Data directory is supposed to be a directory')
 
 
