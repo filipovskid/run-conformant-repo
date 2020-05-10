@@ -40,7 +40,7 @@ class DRBoson:
         if file_path.is_file() is False:
             raise TypeError(f'drboson: {file_path} is not a file')
 
-        if self.run.work_dir in file_path.absolute().parents:
+        if self.run.work_dir not in file_path.absolute().parents:
             raise PermissionError(f'drboson: {file_path} is not in the work directory')
 
         message = self.__prepare_message(message_type='file', payload=str(file_path.absolute()))
