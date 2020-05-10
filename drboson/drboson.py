@@ -60,7 +60,7 @@ class Run(object):
         self.id = run_id
         self.project_id = project_id
         self.work_dir = pathlib.Path(work_dir)
-        self.dataset_dir = dataset_dir
+        self.dataset_dir = pathlib.Path(dataset_dir)
 
         if self.work_dir.is_dir() is False:
             raise NotADirectoryError('drboson: Work directory is supposed to be a directory')
