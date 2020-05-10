@@ -5,7 +5,8 @@ import messages
 
 
 class History:
-    def __init__(self, producer):
+    def __init__(self, run, producer):
+        self._run = run
         self.producer = producer
         self.steps = 0
         self.log = {}
@@ -58,9 +59,8 @@ class History:
 
         return logs
 
-    @staticmethod
-    def __prepare_message(log):
-        message = messages.make_communication_message(id='', type='log', payload=log)
+    def __prepare_message(self, log):
+        message = messages.make_communication_message(id=self._run.id, type='log', payload=log)
 
         return json.dumps(message)
 
@@ -68,7 +68,7 @@ class History:
         logs = self.__transform()
 
         for log in logs:
-            message = History.__prepare_message(log)
+            message = self.__prepare_message(log)
             self.producer.produce(message)
 
         self.steps += 1

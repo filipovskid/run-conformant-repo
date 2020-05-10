@@ -10,7 +10,7 @@ class DRBoson:
     def __init__(self, run=None, producer=ClientProducer()):
         self.run = run
         self.producer = producer
-        self.history = history.History(self.producer)
+        self.history = history.History(run, self.producer)
 
     def log(self, log, step=None, commit=True):
         if not isinstance(log, collections.Mapping):
