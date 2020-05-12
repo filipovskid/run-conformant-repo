@@ -62,7 +62,7 @@ class History:
     def __prepare_message(self, log):
         message = messages.make_communication_message(run_id=self._run.id,
                                                       project_id=self._run.project_id,
-                                                      type='log',
+                                                      message_type='log',
                                                       payload=log)
         return json.dumps(message)
 
