@@ -1,4 +1,3 @@
-
 def make_communication_message(run_id, project_id, message_type, payload):
     types = ['log', 'file', 'status']
     status_allowed_payload = ['pending', 'preparing', 'running', 'failed', 'completed']

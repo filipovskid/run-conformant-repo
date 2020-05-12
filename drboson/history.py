@@ -60,8 +60,10 @@ class History:
         return logs
 
     def __prepare_message(self, log):
-        message = messages.make_communication_message(id=self._run.id, type='log', payload=log)
-
+        message = messages.make_communication_message(run_id=self._run.id,
+                                                      project_id=self._run.project_id,
+                                                      type='log',
+                                                      payload=log)
         return json.dumps(message)
 
     def __write(self):
