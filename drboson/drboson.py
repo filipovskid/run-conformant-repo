@@ -23,8 +23,10 @@ class DRBoson:
         self.history.add(log, step=step, commit=commit)
 
     def __prepare_message(self, message_type, payload):
-        message = messages.make_communication_message(id=self.run.id, type=message_type, payload=payload)
-
+        message = messages.make_communication_message(run_id=self.run.id,
+                                                      project_id=self.run.project_id,
+                                                      message_type=message_type,
+                                                      payload=payload)
         return json.dumps(message)
 
     def save(self, filename):
