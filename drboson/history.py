@@ -67,10 +67,9 @@ class History:
         return json.dumps(message)
 
     def __write(self):
-        logs = self.__transform()
+        self.log['_step'] = self.steps
 
-        for log in logs:
-            message = self.__prepare_message(log)
-            self.producer.produce(message)
-
+        message = self.__prepare_message(self.log)
+        self.producer.produce(message)
+        
         self.steps += 1
