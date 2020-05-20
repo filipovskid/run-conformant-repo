@@ -71,5 +71,5 @@ class History:
 
         message = self.__prepare_message(self.log)
         self.producer.produce(message)
-        
+
         self.steps += 1
