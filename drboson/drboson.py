@@ -67,8 +67,6 @@ class Run(object):
         if self.work_dir.is_dir() is False:
             raise NotADirectoryError('drboson: Work directory is supposed to be a directory')
 
-        if self.dataset_location.is_dir() is False:
-            raise NotADirectoryError('drboson: Data directory is supposed to be a directory')
-
-
+        # if self.dataset_location.is_dir() is False:
+        #     raise NotADirectoryError('drboson: Data directory is supposed to be a directory')
 
