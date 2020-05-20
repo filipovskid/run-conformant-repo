@@ -14,6 +14,9 @@ def run(drboson=DRBoson(), dataset_location=None):
     some_file = pathlib.Path('something.txt')
     with open(some_file, 'a') as file:
         file.write(f'{dataset_location}')
+
+        make an error
+
         for i in range(20):
             file.write(f'This is some random number in a file: {i}\n')
 

@@ -56,6 +56,10 @@ class DRBoson:
         message = self.__prepare_message(message_type='status', payload='completed')
         self.producer.produce(message)
 
+    def failed(self):
+        message = self.__prepare_message(message_type='status', payload='failed')
+        self.producer.produce(message)
+
 
 class Run(object):
     def __init__(self, run_id=None, project_id=None, work_dir=None, dataset_location=None):
