@@ -33,6 +33,6 @@ def run(drboson=DRBoson(), dataset_location=None):
     dataset_print = pathlib.Path('dataset_data.txt')
     with open(dataset_print, 'a') as file: 
         file.write(f'Dataset: {dataset_location} \n')
-        write_dataset_lines(dataset_print, file)
+        write_dataset_lines(dataset_location, file)
 
     drboson.save(dataset_print)
